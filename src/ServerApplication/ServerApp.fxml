@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ServerApplication.ServerAppController">
+   <children>
+      <ImageView blendMode="HARD_LIGHT" fitHeight="155.0" fitWidth="800.0" opacity="0.87" pickOnBounds="true">
+         <image>
+            <Image url="@serverAppImage.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="182.0" layoutY="91.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0" text="Server Application">
+         <font>
+            <Font size="57.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="0.2361111044883728" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.013422818791946308">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8684210777282715" green="0.12061403691768646" blue="0.12061403691768646" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Pane fx:id="beforeServerStart" layoutX="88.0" layoutY="191.0" prefHeight="302.0" prefWidth="625.0">
+         <children>
+            <TextField fx:id="portNumber" alignment="CENTER" focusTraversable="false" layoutX="213.0" layoutY="70.0" pickOnBounds="false" prefHeight="30.0" prefWidth="220.0" promptText="Enter port   ex: 34765">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <effect>
+                  <Blend />
+               </effect>
+            </TextField>
+            <Button fx:id="startServerCall" layoutX="262.0" layoutY="136.0" mnemonicParsing="false" onAction="#startServer" text="Start server" textFill="#44e420" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="afterServerStart" layoutX="-1.0" layoutY="155.0" prefHeight="444.0" prefWidth="800.0" visible="false">
+         <children>
+            <Text fill="#22d02d" layoutX="289.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server is Running...">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <ListView fx:id="connectedCustomerList" layoutX="536.0" layoutY="130.0" prefHeight="300.0" prefWidth="250.0" />
+            <Text fx:id="portNumberDisplay" layoutX="26.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port Number : " wrappingWidth="164.61197662353516">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="IPAddressShow" layoutX="26.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button fx:id="stopServerButton" layoutX="26.0" layoutY="268.0" mnemonicParsing="false" onAction="#stopServer" text="Stop Server" textFill="#da0707">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Text layoutX="277.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connected Restaurants">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="536.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connected Customers">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <ListView fx:id="connectedRestaurantList" layoutX="275.0" layoutY="130.0" prefHeight="300.0" prefWidth="250.0" />
+            <Button fx:id="portNumCopyButton" layoutX="147.0" layoutY="138.0" mnemonicParsing="false" text="Copy" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
